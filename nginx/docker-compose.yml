@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  servernginx:
+    container_name: server-nginx # nom du container
+    # image: node:16 Si je souhaite partir d'une image déjà existante, sans rien modifier
+    build: . # Si je souhaite créer mon image moi même, on écris le chemin vers le Dockerfile
+    restart: "no" # gestion des erreurs, réeesayer en boucle ou pas
+    ports:
+      - 3000:80

@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  serverapache:
+    container_name: server-apache # nom du container
+    # image: node:16 Si je souhaite partir d'une image déjà existante, sans rien modifier
+    build: . # Si je souhaite créer mon image moi même, on écris le chemin vers le Dockerfile
+    restart: "no" # gestion des erreurs, réeesayer en boucle ou pas
+    ports:
+      - 8090:80
+    # Volumes : pour synchroniser mon code à celui dans le container
+    volumes:
+      - ./code:/var/www/html # emplacement de mon code : emplacement dans le container
